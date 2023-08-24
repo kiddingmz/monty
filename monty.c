@@ -56,7 +56,7 @@ int main(int ac, char **av)
 	while ((nu = getline(&buffer, &size, file)) != EOF)
 	{
 		args[0] = _strtok(buffer, " \t\n");
-		if (args[0])
+		if (args[0] && args[0][0] != '#')
 		{
 			f = get_opcodes(args[0]);
 			if (f == NULL)
