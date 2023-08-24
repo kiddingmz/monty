@@ -146,3 +146,32 @@ void _pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	}
 	_putchar('\n');
 }
+
+/**
+ * _rotl - prints the char at the top of the stack, followed by a new line
+ *
+ * @stack: linked list
+ * @line_number: line number
+ *
+ * Return: nothing
+ */
+
+void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *aux1 = NULL;
+	stack_t *aux2 = NULL;
+
+	if (*stack == NULL ||  (*stack)->next == NULL)
+		return;
+
+	aux1 = (*stack)->next;
+	aux2 = *stack;
+	for (; aux2->next != NULL; aux2 = aux2->next)
+		;
+
+	aux1->prev = NULL;
+	aux2->next = *stack;
+	(*stack)->next = NULL;
+	(*stack)->prev = aux2;
+	*stack = aux1;
+}
