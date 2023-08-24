@@ -148,7 +148,7 @@ void _pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 }
 
 /**
- * _rotl - prints the char at the top of the stack, followed by a new line
+ * _rotl - rotates the stack to the top
  *
  * @stack: linked list
  * @line_number: line number
