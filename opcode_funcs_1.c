@@ -61,8 +61,7 @@ void _pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _pint - the opcode pall prints all the values on the stack,
- *              starting from the top of the stack
+ * _pint -  prints the value at the top of the stack, followed by a new line.
  *
  * @stack: linked list
  * @line_number: line number
@@ -85,8 +84,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _pop - the opcode pall prints all the values on the stack,
- *              starting from the top of the stack
+ * _pop - removes the top element of the stack
  *
  * @stack: linked list
  * @line_number: line number

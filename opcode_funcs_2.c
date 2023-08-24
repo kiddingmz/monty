@@ -78,3 +78,18 @@ void _add(stack_t **stack, unsigned int line_number)
 	free(aux);
 	(*stack)->n += vl;
 }
+
+/**
+ * _nop - doesn’t do anything
+ *
+ * @stack: linked list
+ * @line_number: line number
+ *
+ * Return: nothing
+ */
+
+void _nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
