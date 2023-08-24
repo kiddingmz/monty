@@ -1,12 +1,9 @@
-#ifndef _MONTY_
-#define _MONTY_
-
-
+#ifndef _MONTY_H
+#define _MONTY_H
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
