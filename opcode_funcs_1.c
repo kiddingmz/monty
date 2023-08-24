@@ -59,3 +59,27 @@ void _pall(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	print_dlistint(*stack);
 }
+
+/**
+ * _pint - the opcode pall prints all the values on the stack,
+ *              starting from the top of the stack
+ *
+ * @stack: linked list
+ * @line_number: line number
+ *
+ * Return: nothing
+ */
+
+void _pint(stack_t **stack, unsigned int line_number)
+{
+
+	if (*stack == NULL)
+	{
+		_putserr("L");
+                _putcerr(line_number + '0');
+                _putserr(": can't pint, stack empty\n");
+		free_dlistint(gb_data.gb_head);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}

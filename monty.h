@@ -59,6 +59,7 @@ void free_dlistint(stack_t *head);
 /* opcode functions */
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
 
 /* auxiliar functions */
 void (*get_opcodes(char *op))(stack_t **stack, unsigned int line_number);
