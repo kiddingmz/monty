@@ -49,36 +49,31 @@ int main(int ac, char **av)
 	FILE *file;
 	size_t size = 256;
 	ssize_t nu = 0, line = 1;
-	char *buffer = NULL, *tmp_buffer = NULL;
-	char **args = NULL;
+	char *buffer = NULL;
+	char *args[] = {NULL, NULL};
 
-	gb_data.gb_head = NULL;
-	gb_data.gb_nu = NULL;
 	file = check_input(ac, av);
 	while ((nu = getline(&buffer, &size, file)) != EOF)
 	{
-		buffer[nu - 1] = '\0';
-		tmp_buffer = buffer;
-		buffer = _strtrim(buffer);
-		if (buffer == NULL)
-			free(tmp_buffer);
-		args = process_args(buffer);
-		f = get_opcodes(args[0]);
-		if (f == NULL)
+		args[0] = _strtok(buffer, " \t\n");
+		if (args[0])
 		{
-			_putserr("L");
-			_putchar('0' + line);
-			_putserr(": unknown instruction ");
-			_putserr(args[0]);
-			_putchar('\n');
-			exit(EXIT_FAILURE);
+			f = get_opcodes(args[0]);
+			if (f == NULL)
+			{
+				_putserr("L");
+				_putchar('0' + line);
+				_putserr(": unknown instruction ");
+				_putserr(args[0]);
+				_putchar('\n');
+				exit(EXIT_FAILURE);
+			}
+			args[1] = _strtok(NULL, " \t\n");
+			if (args[1] != NULL)
+				gb_data.gb_nu = args[1];
+			f(&gb_data.gb_head, line);
 		}
-		if (args[1] != NULL)
-			gb_data.gb_nu = args[1];
-		f(&gb_data.gb_head, line);
 		line++;
-		_free_array(args);
-		free(args);
 	}
 	free(buffer);
 	free_dlistint(gb_data.gb_head);
