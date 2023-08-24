@@ -66,6 +66,9 @@ int main(int ac, char **av)
 				_putserr(": unknown instruction ");
 				_putserr(args[0]);
 				_putchar('\n');
+				free_dlistint(gb_data.gb_head);
+				free(buffer);
+				fclose(file);
 				exit(EXIT_FAILURE);
 			}
 			args[1] = _strtok(NULL, " \t\n");
