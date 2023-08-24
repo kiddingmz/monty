@@ -40,12 +40,14 @@ typedef struct instruction_s
  *
  * @gb_head: double linked list
  * @gb_nu: argument
+ * @queue_stack: represent status to queue or stack
  *
  */
 typedef struct data_operations
 {
 	stack_t *gb_head;
 	char *gb_nu;
+	short int queue_stack;
 } data_t;
 
 /* share var between source files */
@@ -72,6 +74,8 @@ void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
 void _rotl(stack_t **stack, unsigned int line_number);
 void _rotr(stack_t **stack, unsigned int line_number);
+void _queue(stack_t **stack, unsigned int line_number);
+void _stack(stack_t **stack, unsigned int line_number);
 
 /* auxiliar functions */
 void (*get_opcodes(char *op))(stack_t **stack, unsigned int line_number);

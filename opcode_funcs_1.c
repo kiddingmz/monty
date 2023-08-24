@@ -18,10 +18,15 @@ void _push(stack_t **stack, unsigned int line_number)
 		_putserr("L");
 		_putcerr(line_number + '0');
 		_putserr(": usage: push integer\n");
+		free_dlistint(gb_data.gb_head);
 		exit(EXIT_FAILURE);
 	}
 	nr = _atoi(gb_data.gb_nu);
-	add_dnodeint(stack, nr);
+
+	if (gb_data.queue_stack == 1)
+		add_dnodeint_end(stack, nr);
+	else
+		add_dnodeint(stack, nr);
 }
 
 /**

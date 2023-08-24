@@ -26,3 +26,37 @@ void _rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	(*stack)->prev = aux;
 	*stack = aux;
 }
+
+/**
+ * _stack - LIFO
+ *
+ * @stack: linked list
+ * @line_number: line number
+ *
+ * Return: nothing
+ */
+
+void _stack(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+	gb_data.queue_stack = 0;
+}
+
+/**
+ * _queue - FIFO
+ *
+ * @stack: linked list
+ * @line_number: line number
+ *
+ * Return: nothing
+ */
+
+void _queue(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+	gb_data.queue_stack = 1;
+}
