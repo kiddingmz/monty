@@ -123,3 +123,26 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	_putchar(ch);
 	_putchar('\n');
 }
+
+/**
+ * _pstr - prints the string starting at the top of the stack,
+ *		followed by a new line
+ *
+ * @stack: linked list
+ * @line_number: line number
+ *
+ * Return: nothing
+ */
+
+void _pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *aux;
+
+	aux = *stack;
+	while (aux && aux->n > 0 && aux->n < 128)
+	{
+		_putchar(aux->n);
+		aux = aux->next;
+	}
+	_putchar('\n');
+}
