@@ -87,3 +87,39 @@ void _mod(stack_t **stack, unsigned int line_number)
 	free(aux);
 	(*stack)->n %= vl;
 }
+
+/**
+ * _pchar - prints the char at the top of the stack, followed by a new line
+ *
+ * @stack: linked list
+ * @line_number: line number
+ *
+ * Return: nothing
+ */
+
+void _pchar(stack_t **stack, unsigned int line_number)
+{
+	int ch;
+
+	if (*stack == NULL || stack == NULL)
+	{
+		_putserr("L");
+		_putcerr(line_number + '0');
+		_putserr(": can't pchar, stack empty\n");
+		free_dlistint(gb_data.gb_head);
+		exit(EXIT_FAILURE);
+	}
+
+	ch = (*stack)->n;
+	if (ch > 127 && 0 < ch)
+	{
+		_putserr("L");
+		_putcerr(line_number + '0');
+		_putserr(": can't pchar, value out of range\n");
+		free_dlistint(gb_data.gb_head);
+		exit(EXIT_FAILURE);
+	}
+
+	_putchar(ch);
+	_putchar('\n');
+}
