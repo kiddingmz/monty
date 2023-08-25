@@ -87,12 +87,7 @@ void _putserr(char *s);
 int _atoi(char *s);
 int _strcmp(char *dest, char *src);
 int isall_digit(const char *str);
-char *_memmove(char *dest, const char *src, size_t n);
 int _isspace(int c);
-char **process_args(char *data);
 char *_strtok(char *str, const char *delim);
-char *_strtrim(char *str);
-size_t _strlen(const char *str);
-char *_strdup(char *str);
 void _free_array(char **av);
 #endif
