@@ -72,6 +72,7 @@ int main(int ac, char **av)
 				exit(EXIT_FAILURE);
 			}
 			args[1] = _strtok(NULL, " \t\n");
+			gb_data.gb_nu = "!-!";
 			if (args[1] != NULL)
 				gb_data.gb_nu = args[1];
 			f(&gb_data.gb_head, line);

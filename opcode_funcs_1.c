@@ -13,7 +13,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	int nr;
 
-	if (!isall_digit(gb_data.gb_nu))
+	if (!isall_digit(gb_data.gb_nu) && !_strcmp(gb_data.gb_nu, "!-!"))
 	{
 		_putserr("L");
 		_putcerr(line_number + '0');
