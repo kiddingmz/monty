@@ -27,7 +27,7 @@ FILE *check_input(int ac, char **av)
 	{
 		_putserr("Error: Can't open file ");
 		_putserr(av[1]);
-		_putchar('\n');
+		_putcerr('\n');
 		exit(EXIT_FAILURE);
 	}
 
@@ -62,10 +62,10 @@ int main(int ac, char **av)
 			if (f == NULL)
 			{
 				_putserr("L");
-				_putchar('0' + line);
+				_putcerr('0' + line);
 				_putserr(": unknown instruction ");
 				_putserr(args[0]);
-				_putchar('\n');
+				_putcerr('\n');
 				free_dlistint(gb_data.gb_head);
 				free(buffer);
 				fclose(file);
