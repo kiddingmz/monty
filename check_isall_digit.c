@@ -10,10 +10,13 @@
 
 int isall_digit(const char *str)
 {
-	while (*str != '\0')
+	int i;
+	
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (_isdigit(*str) == 1)
-			str++;
+		if (_isdigit(str[i]) == 1 || (str[i] == '-' && i == 0))
+			i++;
 		else
 			return (0);
 	}
