@@ -100,7 +100,6 @@ void _mod(stack_t **stack, unsigned int line_number)
 void _pchar(stack_t **stack, unsigned int line_number)
 {
 	int ch;
-	short int on = 0;
 
 	if (*stack == NULL || stack == NULL)
 	{
@@ -120,15 +119,8 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		free_dlistint(gb_data.gb_head);
 		exit(EXIT_FAILURE);
 	}
-
-	if (ch == 65 || ch == 68)
-		on = 1;
-
 	_putchar(ch);
 	_putchar('\n');
-	
-	if (on == 1)
-		printf("%d\n", 0);
 }
 
 /**
