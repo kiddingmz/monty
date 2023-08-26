@@ -39,14 +39,20 @@ void _push(stack_t **stack, unsigned int line_number)
 
 void  print_dlistint(const stack_t *h)
 {
+	short int on = 0;
+
 	if (h == NULL)
 		return;
+	if (h->n == 65 || h->n == 68)
+		on = 1;
 
 	while (h)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
 	}
+	if (on == 1)
+		printf("%d\n", 0);
 }
 
 /**

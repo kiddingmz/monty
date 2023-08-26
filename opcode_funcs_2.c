@@ -179,5 +179,5 @@ void _div(stack_t **stack, unsigned int line_number)
 	vl = (*stack)->n;
 	*stack = (*stack)->next;
 	free(aux);
-	(*stack)->n = (*stack)->n / vl;
+	(*stack)->n /= vl;
 }
