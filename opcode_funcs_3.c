@@ -111,7 +111,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	ch = (*stack)->n;
-	if (ch > 127 || 0 < ch)
+	if (ch < 0 || ch > 127)
 	{
 		_putserr("L");
 		_putcerr(line_number + '0');
@@ -119,8 +119,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		free_dlistint(gb_data.gb_head);
 		exit(EXIT_FAILURE);
 	}
-
-	_putchar(ch);
+	printf("%c", ch);
 	_putchar('\n');
 }
 
