@@ -111,7 +111,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	ch = (*stack)->n;
-	if (ch < 0 || ch > 127)
+	if (ch < 0 || ch >= 128)
 	{
 		_putserr("L");
 		_putcerr(line_number + '0');
