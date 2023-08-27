@@ -45,12 +45,12 @@ FILE *check_input(int ac, char **av)
 
 int main(int ac, char **av)
 {
-	void (*f)(stack_t **stack, unsigned int line_number);
 	FILE *file;
 	size_t size = 256;
 	ssize_t nu = 0, line = 1;
 	char *buffer = NULL;
 	char *args[] = {NULL, NULL};
+	instruction_t p;
 
 	file = check_input(ac, av);
 	while ((nu = getline(&buffer, &size, file)) != EOF)
@@ -58,8 +58,8 @@ int main(int ac, char **av)
 		args[0] = _strtok(buffer, " \t\n");
 		if (args[0] && args[0][0] != '#')
 		{
-			f = get_opcodes(args[0]);
-			if (f == NULL)
+			p.f = get_opcodes(args[0]);
+			if (p.f == NULL)
 			{
 				_putserr("L");
 				_putcerr('0' + line);
@@ -75,7 +75,7 @@ int main(int ac, char **av)
 			gb_data.gb_nu = "!-!";
 			if (args[1] != NULL)
 				gb_data.gb_nu = args[1];
-			f(&gb_data.gb_head, line);
+			p.f(&gb_data.gb_head, line);
 		}
 		line++;
 	}
